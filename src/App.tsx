@@ -1,25 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Navbar from 'components/navbar';
+import { ContinentProvider } from 'context/continent';
+import { Fragment } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Continents from 'pages/continents';
+import Countries from 'pages/countries';
+import Languages from 'pages/languages';
+import { CountryProvider } from 'context/country';
+import { LanguageProvider } from 'context/language';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path='/'>
+            <ContinentProvider>
+              <Continents />
+            </ContinentProvider>
+          </Route>
+
+          <Route exact path='/countries'>
+            <CountryProvider>
+              <Countries />
+            </CountryProvider>
+          </Route>
+
+          <Route exact path='/languages'>
+            <LanguageProvider>
+              <Languages />
+            </LanguageProvider>
+          </Route>
+        </Switch>
+      </Router>
+    </Fragment>
   );
 }
 
