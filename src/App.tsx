@@ -7,6 +7,7 @@ import Countries from 'pages/countries';
 import Languages from 'pages/languages';
 import { CountryProvider } from 'context/country';
 import { LanguageProvider } from 'context/language';
+import ContinentDetails from 'pages/continent-details';
 
 function App() {
   return (
@@ -17,6 +18,12 @@ function App() {
           <Route exact path='/'>
             <ContinentProvider>
               <Continents />
+            </ContinentProvider>
+          </Route>
+
+          <Route path='/continents/:continent'>
+            <ContinentProvider>
+              <ContinentDetails />
             </ContinentProvider>
           </Route>
 

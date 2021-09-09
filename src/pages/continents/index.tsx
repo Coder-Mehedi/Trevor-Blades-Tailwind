@@ -1,11 +1,12 @@
 import Continent from 'components/continent';
+import Loading from 'components/loading';
 import { Container } from 'components/_root';
 import { useContinent } from 'context/continent';
 
 const Continents = () => {
   const { continents, loadingContinents } = useContinent();
 
-  if (loadingContinents) return <p>Loading...</p>;
+  if (loadingContinents) return <Loading />;
 
   return (
     <Container>

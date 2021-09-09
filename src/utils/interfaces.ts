@@ -1,7 +1,7 @@
 export interface IContinent {
   code: string;
   name: string;
-  countries: [ICountry];
+  countries: ICountry[];
 }
 
 export interface ICountry {

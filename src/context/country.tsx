@@ -29,9 +29,7 @@ function CountryProvider({ children }: { children: ReactNode }) {
     if (searchText) {
       setFilteredCountries(() =>
         countries?.countries.filter((country: ICountry) =>
-          country.name
-            .toLocaleLowerCase()
-            .includes(searchText.toLocaleLowerCase())
+          country.name.toLowerCase().includes(searchText.toLowerCase())
         )
       );
     } else {
